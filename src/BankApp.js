@@ -3,12 +3,10 @@ import './BankApp.css';
 
 class BankApp extends Component {
  handleRetrait () {
-   console.log("handleRetrait, this.saisie.value : "+this.saisie.value);
    this.props.onRetrait(this.saisie.value);
    this.saisie.value = '';
  }
  handleDepot () {
-   console.log("handleDepot, this.saisie.value : "+this.saisie.value);
    this.props.onDepot(this.saisie.value);
    this.saisie.value = '';
  }
@@ -25,6 +23,7 @@ class BankApp extends Component {
           <button onClick={this.handleRetrait.bind(this)}>RETRAIT</button>
           <button onClick={this.handleDepot.bind(this)}>DEPOT</button>
         </div>
+        <div onClick={this.props.onToggle}>Infos supplémentaires</div>
       </div>
     );
   }
@@ -33,6 +32,7 @@ class BankApp extends Component {
 BankApp.propTypes = {
   compte : React.PropTypes.number,
   onDepot : React.PropTypes.func,
-  onRetrait : React.PropTypes.func
+  onRetrait : React.PropTypes.func,
+  onToggle: React.PropTypes.func
 }
 export default BankApp;

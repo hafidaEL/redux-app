@@ -6,6 +6,9 @@ const bankActionCreators = {
    } ,
    retraitSurCompte(montant) {
         return  { type: constants.RETRAIT_COMPTE , montant  } ;
+   },
+   toggleInfo() {
+       return { type: constants.TOGGLE_INFO }
    }
 };
 

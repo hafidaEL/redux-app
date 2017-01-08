@@ -38,7 +38,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onDepot: (montant) => {  dispatch(bankActionCreators.depotSurCompte(montant))},
-        onRetrait: (montant) => {  dispatch(bankActionCreators.retraitSurCompte(montant))}, 
+        onRetrait: (montant) => {  dispatch(bankActionCreators.retraitSurCompte(montant))},
+        onToggle: () =>  {  dispatch(bankActionCreators.toggleInfo()) }
     }
 }
 
