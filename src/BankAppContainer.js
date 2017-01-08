@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BankApp from './BankApp';
 import bankStore from './bankStore';
 import constants from './constants';
+import bankActionCreators from './bankActionCreators';
 
 class BankAppContainer extends Component {
     constructor(props) {
@@ -9,7 +10,6 @@ class BankAppContainer extends Component {
       /*  this.state = {
             compte : 0
         }*/
-        bankStore.dispatch({ type: constants.CREATION_COMPTE });
         this.state = { compte : bankStore.getState().compte } ;
     }
     componentDidMount() {
@@ -23,8 +23,8 @@ class BankAppContainer extends Component {
         return (
             <BankApp 
                 compte={this.state.compte}
-                onDepot={ (montant) => bankStore.dispatch({ type: constants.DEPOT_COMPTE , montant  }) }
-                onRetrait={ (montant) => bankStore.dispatch({ type: constants.RETRAIT_COMPTE , montant }) }
+                onDepot={ (montant) => bankStore.dispatch(bankActionCreators.depotSurCompte(montant)) }
+                onRetrait={ (montant) => bankStore.dispatch(bankActionCreators.retraitSurCompte(montant)) }
             />
         )
     }
