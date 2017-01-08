@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';*/
 import BankApp from './BankApp';
-import bankStore from './bankStore';
-import constants from './constants';
+/*import constants from './constants';*/
 import bankActionCreators from './bankActionCreators';
+/*import bankStore from './bankStore';*/
+import { connect } from 'react-redux';
 
+/*
 class BankAppContainer extends Component {
     constructor(props) {
         super(props);
-      /*  this.state = {
-            compte : 0
-        }*/
+     
         this.state = { compte : bankStore.getState().compte } ;
     }
     componentDidMount() {
@@ -28,6 +28,20 @@ class BankAppContainer extends Component {
             />
         )
     }
+}*/
+
+const mapStateToProps = (state) => {
+    return {
+        compte : state.compte
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onDepot: (montant) => {  dispatch(bankActionCreators.depotSurCompte(montant))},
+        onRetrait: (montant) => {  dispatch(bankActionCreators.retraitSurCompte(montant))}, 
+    }
 }
 
-export default BankAppContainer;
+
+const BankAppContainer = connect(mapStateToProps, mapDispatchToProps) (BankApp) ;
+export default BankAppContainer; 
