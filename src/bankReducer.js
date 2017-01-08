@@ -2,30 +2,33 @@ import constants from './constants';
 import { combineReducers } from 'redux';
 
 const initialState = {
-    compte : 0,
-    showInfo: false
+    montantInitial : 0,
+    initialUI : {
+        showInfo: false
+    }
 }
 
-const uiReducer = (state = {showInfo : initialState.showInfo}, action) => {
+const uiReducer = (state = initialState.initialUI, action) => {
     switch (action.type) {
         case constants.TOGGLE_INFO :
+            console.log("showinfo "+state.showInfo);
             return { showInfo : ! state.showInfo };  
         default :
             return state;
     }
 } 
 
-const montantReducer = (state={ compte : initialState.compte }, action) => {
+const montantReducer = (state = initialState.montantInitial , action) => {
     switch (action.type) {
         case constants.DEPOT_COMPTE :
-            return { compte : state.compte + parseFloat(action.montant) };  
+            return state + parseFloat(action.montant) ;  
         case constants.RETRAIT_COMPTE :
-            return { compte : state.compte - parseFloat(action.montant) };  
+            return state - parseFloat(action.montant) ;  
         default :
             return state;
     }
 }
-const bankReducer = combineReducers({montant: montantReducer, ui: uiReducer});
+const bankReducer = combineReducers({compte: montantReducer, ui: uiReducer});
 
 export default bankReducer;
 

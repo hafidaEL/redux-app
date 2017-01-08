@@ -23,7 +23,9 @@ class BankApp extends Component {
           <button onClick={this.handleRetrait.bind(this)}>RETRAIT</button>
           <button onClick={this.handleDepot.bind(this)}>DEPOT</button>
         </div>
+        showInfo : [{this.props.showInfo}]
         <div onClick={this.props.onToggle}>Infos supplémentaires</div>
+        
       </div>
     );
   }
@@ -31,6 +33,7 @@ class BankApp extends Component {
 
 BankApp.propTypes = {
   compte : React.PropTypes.number,
+  showInfo : React.PropTypes.bool,
   onDepot : React.PropTypes.func,
   onRetrait : React.PropTypes.func,
   onToggle: React.PropTypes.func

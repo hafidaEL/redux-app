@@ -32,7 +32,8 @@ class BankAppContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        compte : state.compte
+        compte : state.compte,
+        showInfo : state.ui.showInfo
     }
 }
 const mapDispatchToProps = (dispatch) => {
