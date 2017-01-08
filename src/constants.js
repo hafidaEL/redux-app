@@ -1,7 +1,7 @@
 export default {
-    CREATION_COMPTE : "Créer un compte",
-    RETRAIT_COMPTE : "Retrait du compte",
-    DEPOT_COMPTE : "Dépot dans le compte"
+    CREATION_COMPTE : "CREATION_COMPTE",
+    RETRAIT_COMPTE : "RETRAIT_COMPTE",
+    DEPOT_COMPTE : "DEPOT_COMPTE"
 };
 
 
