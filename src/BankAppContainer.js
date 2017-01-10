@@ -2,6 +2,9 @@
 import BankApp from './BankApp';
 /*import constants from './constants';*/
 import bankActionCreators from './bankActionCreators';
+
+const {toggleInfo, depotSurCompte , retraitSurCompte} = bankActionCreators ; 
+
 /*import bankStore from './bankStore';*/
 import { connect } from 'react-redux';
 
@@ -31,19 +34,21 @@ class BankAppContainer extends Component {
 }*/
 
 const mapStateToProps = (state) => {
+    console.log("state ??? "+state);
     return {
         compte : state.compte,
-        showInfo : state.ui.showInfo
+        showInfo : state.ui.showinfo
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        onDepot: (montant) => {  dispatch(bankActionCreators.depotSurCompte(montant))},
-        onRetrait: (montant) => {  dispatch(bankActionCreators.retraitSurCompte(montant))},
-        onToggle: () =>  {  dispatch(bankActionCreators.toggleInfo()) }
+        onDepot: (montant) => {  dispatch(depotSurCompte(montant))},
+        onRetrait: (montant) => {  dispatch(retraitSurCompte(montant))},
+        onToggle: ()=>{ dispatch(toggleInfo()) }
     }
 }
 
 
 const BankAppContainer = connect(mapStateToProps, mapDispatchToProps) (BankApp) ;
+
 export default BankAppContainer; 

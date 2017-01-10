@@ -10,5 +10,17 @@ describe('actions', () => {
       montant
     }
     expect(bankActionCreators.depotSurCompte(montant)).toEqual(expectedAction)
-  })
+  });
+
+  it('devrait creer une action retrait sur compte', () => {
+    const montant = 40;
+    const expectedAction = {
+      type: constants.RETRAIT_COMPTE,
+      montant
+    }
+    expect(bankActionCreators.retraitSurCompte(montant)).toEqual(expectedAction)
+  });
+
 })
+
+

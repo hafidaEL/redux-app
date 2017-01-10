@@ -2,21 +2,21 @@ import constants from './constants';
 import { combineReducers } from 'redux';
 
 const initialState = {
-    montantInitial : 0,
-    initialUI : {
-        showInfo: false
+    montantInitial : 0 ,
+    ui : {
+        showinfo : false
     }
 }
 
-const uiReducer = (state = initialState.initialUI, action) => {
+const uiReducer = (state=initialState.ui, action) =>{
     switch (action.type) {
         case constants.TOGGLE_INFO :
-            console.log("showinfo "+state.showInfo);
-            return { showInfo : ! state.showInfo };  
+            console.log('TOGGLE_INFO, state :'+state.showinfo);
+            return Object.assign({}, {showinfo : !state.showinfo})
         default :
             return state;
     }
-} 
+}
 
 const montantReducer = (state = initialState.montantInitial , action) => {
     switch (action.type) {

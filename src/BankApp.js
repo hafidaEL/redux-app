@@ -15,6 +15,9 @@ class BankApp extends Component {
  }
 
   render() {
+
+    const classTrue = this.props.showInfo ? '' : 'hidden' ;
+    const classFalse = this.props.showInfo ? 'hidden' : '' ;
     return (
       <div>
         <h1>Votre compte est de : {this.props.compte} euros</h1>  
@@ -24,6 +27,10 @@ class BankApp extends Component {
           <button onClick={this.handleDepot.bind(this)}>DEPOT</button>
         </div>
         showInfo : [{this.props.showInfo}]
+
+        <div className={classTrue} >cette div s affiche quand showInfo est vrai </div>
+        <div className={classFalse} >cette div s affiche quand showInfo est faux </div>
+
         <div onClick={this.props.onToggle}>Infos supplémentaires</div>
         
       </div>
