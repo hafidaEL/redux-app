@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import './BankApp.css';
+import CheckboxWithLabel from './CheckboxWithLabel';
+//import Lien from './Lien';
+import { Link } from 'react-router';
+
 
 class BankApp extends Component {
  handleRetrait () {
@@ -20,7 +24,12 @@ class BankApp extends Component {
     const classFalse = this.props.showInfo ? 'hidden' : '' ;
     return (
       <div>
+          <Link activeClassName="active" to="/home">Home</Link>{" "}
+          <Link activeClassName="active" to="/about">About</Link>{" "}
+          <Link activeClassName="active" to="/contact">Contact</Link>
+      
         <h1>Votre compte est de : {this.props.compte} euros</h1>  
+        <CheckboxWithLabel labelOn="ON" labelOff="OFF"   />
         <div className="atm">
           Montant : <input type="text" ref={(input) => this.saisie = input}/>
           <button onClick={this.handleRetrait.bind(this)}>RETRAIT</button>
@@ -32,7 +41,7 @@ class BankApp extends Component {
         <div className={classFalse} >cette div s affiche quand showInfo est faux </div>
 
         <div onClick={this.props.onToggle}>Infos supplémentaires</div>
-        
+
       </div>
     );
   }
